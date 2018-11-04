@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Programing by doing</title>
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.js"></script>
+</head>
+<body>
+    <section class="title">
+        <h1>输入参数生成静态Web</h1>
+    </section>
+    <section class="box1">
+        <form id="all" action="addSql.php" method="post">
+            <p>
+                <label for="folder">文件夹:</label>
+                <input id="folder" type="text" name="articleFolder">
+            </p>
+            <p>
+                <label for="title">标题:&nbsp;&nbsp;</label>
+                <input id="title" type="text" name="articleTitle">
+            </p>
+            <p>
+                <label for="ewm">二维码:</label>
+                <input id="ewm" type="text" name="articleEwm">
+            </p>
+            <p>
+                <label for="cnzz">CNZZ:</label>
+                <input id="cnzz" type="text" name="articleCNZZ">
+            </p>
+            <p>
+                <label for="desc">描述:&nbsp;&nbsp;</label>
+                <input id="desc" type="text" name="articleDesc">
+            </p>
+            <p>
+                <label for="pic">封面图:</label>
+                <input id="pic" type="text" name="articlePic" value="http://txaw2.cn/fm21.jpg">
+            </p>
+
+            <p>
+                <input type="submit" value="提交" id="add">
+            </p>
+        </form>
+    </section>
+
+  <script>
+        // $("#add").click(function () {
+        //     $.ajax({
+        //         url: "addSql.php",
+        //         type: "post",
+        //         data: {
+
+        //         }
+        //     })
+        // })
+        $("#add").click(function () {
+            // alert($("#all").serialize());
+            $.ajax({
+                type: "post",
+                url: "addSql.php",
+                data: $("#all").serialize(),
+                success: function(data) {
+                    alert('ok');
+                }
+            })
+        })
+        
+    </script>
+</body>
+</html>
